@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>Wizard</title>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <link rel="stylesheet" href= "{{ url_for('static',filename='style.css') }}">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <section>
+                <div class="wizard">
+                    <div class="wizard-inner">
+                        <div class="connecting-line"></div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            {% if token == False: %}
+                                <li role="presentation" class="active">
+                            {% else %}
+                                <li role="presentation" class="disabled">
+                            {%endif%}
+
+                                <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Account Setup">
+                                    <span class="round-tab">
+                                        <i> 1 </i>
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li role="presentation" class="disabled">
+                                <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Email Registration">
+                                    <span class="round-tab">
+                                        <i> 2 </i>
+                                    </span>
+                                </a>
+                            </li>
+                            {% if token == True: %}
+                                <li role="presentation" class="active">
+                            {% else %}
+                                <li role="presentation" class="disabled">
+                            {%endif%}
+                                <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Personal Details">
+                                    <span class="round-tab">
+                                        <i> 3 </i>
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li role="presentation" class="disabled">
+                                <a href="#step4" data-toggle="tab" aria-controls="step4" role="tab" title="Credit Card Details">
+                                    <span class="round-tab">
+                                        <i> 4 </i>
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li role="presentation" class="disabled">
+                                <a href="#step5" data-toggle="tab" aria-controls="step5" role="tab" title="Round Up Details">
+                                    <span class="round-tab">
+                                        <i> 5 </i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="wizard-outer">
+                        <div class="container">
+                            <form role="form">
+                                <div class="tab-content">
+                                    {% if token == False: %}
+                                        <div class="tab-pane active" role="tabpanel" id="step1">
+                                    {% else %}
+                                        <div class="tab-pane" role="tabpanel" id="step1">
+                                    {%endif%}
+
+                                        <div class="row">
+                                            <div class="col-xs-4"></div>
+                                            <div class="col-xs-4">
+                                                <div class="row">
+                                                    <H3 class="text-uppercase text-center">Create your Account</H3>
+                                                </div>
+                                                <div class="row btn-login">
+                                                    <button class="btn btn-facebook btn-lg btn-block responsive-width">Login with Facebook</button>
+                                                </div>
+                                                <div class="row btn-login">
+                                                    <button class="btn btn-google btn-lg btn-block responsive-width"><a href="/google">Login with Google</a></button>
+                                                </div>
+                                                <div class="row btn-login ">
+                                                    <button class="btn btn-twitter btn-lg btn-block responsive-width">Login with Twitter</button>
+                                                </div>
+                                                <div class="row btn-login">
+                                                    <h4 class="text-center">OR</h4>
+                                                </div>
+                                                <div class="row btn-login">
+                                                    <form class="navbar-form navbar-left" role="email">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" placeholder="Email">
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="row btn-login">
+                                                <ul class="list-inline pull-right">
+                                                    <li><button type="button" class="btn btn-primary next-step">Next</button></li>
+                                                </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-4"></div>
+                                        </div>
+                                    </div>
+                                    <!-- ############################################################# -->
+                                    <div class="tab-pane" role="tabpanel" id="step2">
+                                        <div class="row">
+                                            <div class="col-xs-4"></div>
+                                            <div class="col-xs-4">
+                                                <div class="row">
+                                                    <H3 class="text-uppercase text-center">Email Registration</H3>
+                                                    <p class="text-uppercase text-center">Register with your email id</p>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-12 email-reg">
+                                                        <input type="text" class="form-control" placeholder="Email">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <input type="text" class="form-control" placeholder="Password">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <input type="text" class="form-control email-reg" placeholder="Confirm Password">
+                                                    </div>
+                                                </div>
+                                                <ul class="list-inline text-center">
+                                                    <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                                                    <li><button type="button" class="btn btn-primary next-step">Next</button></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-xs-4"></div>
+                                        </div>
+
+                                    </div>
+                                    <!-- ############################################################ -->
+                                    {% if token == True: %}
+                                        <div class="tab-pane active" role="tabpanel" id="step3">
+                                    {% else %}
+                                        <div class="tab-pane" role="tabpanel" id="step3">
+                                    {%endif%}
+                                    <!-- <div class="tab-pane" role="tabpanel" id="step3"> -->
+                                        <div class="row">
+                                            <div class="col-xs-4"></div>
+                                            <div class="col-xs-4">
+                                                <div class="row">
+                                                    <H3 class="text-uppercase text-center">Personal Details</H3>
+                                                    <p class="text-uppercase text-center">We will never sell it</p>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-12 email-reg">
+                                                        <input type="text" class="form-control" placeholder="First Name">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <input type="text" class="form-control" placeholder="Last Name">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <input type="text" class="form-control email-reg" placeholder="Phone">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <input type="text" class="form-control email-reg" placeholder="Address">
+                                                    </div>
+                                                </div>
+                                                <ul class="list-inline text-center">
+                                                    <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                                                    <li><button type="button" class="btn btn-primary next-step">Next</button></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-xs-4"></div>
+                                        </div>
+                                    </div>
+                                    <!-- #################################################### -->
+                                    <div class="tab-pane" role="tabpanel" id="step4">
+                                        <div class="row">
+                                            <div class="col-xs-4"></div>
+                                            <div class="col-xs-4">
+                                                <div class="row">
+                                                    <H3 class="text-uppercase text-center">CREDIT CARD DETAILS</H3>
+                                                    <p class="text-uppercase text-center">Enter the credit card details</p>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-12 email-reg">
+                                                        <input type="text" class="form-control" placeholder="Card Number">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-6">
+                                                        <select name="Month" class="form-control">
+                                                          <option value="january">January</option>
+                                                          <option value="february">February</option>
+                                                          <option value="march">March</option>
+                                                          <option value="april">April</option>
+                                                          <option value="may">May</option>
+                                                          <option value="june">June</option>
+                                                          <option value="july">July</option>
+                                                          <option value="august">August</option>
+                                                          <option value="september">September</option>
+                                                          <option value="october">October</option>
+                                                          <option value="november">November</option>
+                                                          <option value="december">December</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <select name="Year" class="form-control">
+                                                          <option value="2016">2016</option>
+                                                          <option value="2017">2017</option>
+                                                          <option value="2018">2018</option>
+                                                          <option value="2019">2019</option>
+                                                          <option value="2020">2020</option>
+                                                          <option value="2021">2021</option>
+                                                          <option value="2022">2022</option>
+                                                          <option value="2023">2023</option>
+                                                          <option value="2024">2024</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <input type="text" class="form-control email-reg" placeholder="CVV">
+                                                    </div>
+                                                </div>
+                                                <ul class="list-inline text-center">
+                                                    <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                                                    <li><button type="button" class="btn btn-primary next-step">Next</button></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-xs-4"></div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" role="tabpanel" id="step5">
+                                        <div class="row">
+                                            <div class="col-xs-4"></div>
+                                            <div class="col-xs-4">
+                                                <div class="row">
+                                                    <H3 class="text-uppercase text-center">ROUND UP DETAILS</H3>
+                                                    <p class="text-uppercase text-center">Enter the details</p>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-4">
+                                                        <span class="rnd-up pull-right" style="padding-top:10px"> I am a:</span>
+                                                    </div>
+                                                    <div class="col-xs-4">
+                                                        <div class="radio pull-left">
+                                                            <label><input type="radio" name="type" id="donor" checked>Donor</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-4 pull-left">
+                                                        <div class="radio">
+                                                            <label><input type="radio" name="type" id="charity">Charity</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-4">
+                                                        <div class="text-right">
+                                                            <p class="rnd-up align-middle"> Find Your Cause:</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-8">
+                                                        <select class="form-control">
+                                                            <option selected>Select your cause</option>
+                                                            <option value="1">One</option>
+                                                            <option value="2">Two</option>
+                                                            <option value="3">Three</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <ul class="list-inline text-center">
+                                                    <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                                                    <li><button type="button" class="btn btn-primary next-step">Next</button></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-xs-4"></div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+           </div>
+        </div>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+        <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+    </body>
+</html>

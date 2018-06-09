@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Multi Step Form with Progress Bar using jQuery and CSS3</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <!-- multistep form -->
+<form id="msform">
+  <!-- progressbar -->
+  <ul id="progressbar">
+    <li class="active">Account Setup</li>
+    <li>Email Registration</li>
+    <li>Personal Details</li>
+	<li>Credit Card Details</li>
+	<li>Round Up Details</li>
+  </ul>
+  <!-- fieldsets -->
+  <fieldset>
+    <h2 class="fs-title">Create your account</h2>
+    <h3 class="fs-subtitle">This is step 1</h3>
+	<div class="col-sm-12 controls">
+		<a id="btn-fblogin" href="https://www.facebook.com/" class="btn btn-facebook">Login with Facebook</a>
+		<a id="btn-googlelogin" href="#" class="btn btn-google">Login with Google+</a>
+		<a id="btn-twitterlogin" href="#" class="btn btn-twitter">Login with Twitter</a>
+		<strong>OR</strong>
+	</div>
+    <input type="text" name="email" placeholder="Email" />
+    <input type="button" name="next" class="next action-button" value="Next" />
+  </fieldset>
+  <fieldset>
+    <h2 class="fs-title">Email Registration</h2>
+    <h3 class="fs-subtitle">Register with your email id</h3>
+    <input type="text" name="email" placeholder="Email" />
+    <input type="password" name="pass" placeholder="Password" />
+    <input type="password" name="cpass" placeholder="Confirm Password" />
+    <input type="button" name="previous" class="previous action-button" value="Previous" />
+    <input type="button" name="next" class="next action-button" value="Next" />
+  </fieldset>
+  <fieldset>
+    <h2 class="fs-title">Personal Details</h2>
+    <h3 class="fs-subtitle">We will never sell it</h3>
+    <input type="text" name="fname" placeholder="First Name" />
+    <input type="text" name="lname" placeholder="Last Name" />
+    <input type="text" name="phone" placeholder="Phone" />
+    <textarea name="address" placeholder="Address"></textarea>
+    <input type="button" name="previous" class="previous action-button" value="Previous" />
+    <input type="button" name="next" class="next action-button" value="Next" />
+  </fieldset>
+    <fieldset>
+    <h2 class="fs-title">Credit Card Details</h2>
+    <h3 class="fs-subtitle">Enter the credit card details</h3>
+    <input type="text" name="card-number" placeholder="Card Number" />
+	<!-- Date Field -->
+	<div class="date-field">
+      <div class="month">
+        <select name="Month">
+          <option value="january">January</option>
+          <option value="february">February</option>
+          <option value="march">March</option>
+          <option value="april">April</option>
+          <option value="may">May</option>
+          <option value="june">June</option>
+          <option value="july">July</option>
+          <option value="august">August</option>
+          <option value="september">September</option>
+          <option value="october">October</option>
+          <option value="november">November</option>
+          <option value="december">December</option>
+        </select>
+      </div>
+	  <div class="year">
+        <select name="Year">
+          <option value="2016">2016</option>
+          <option value="2017">2017</option>
+          <option value="2018">2018</option>
+          <option value="2019">2019</option>
+          <option value="2020">2020</option>
+          <option value="2021">2021</option>
+          <option value="2022">2022</option>
+          <option value="2023">2023</option>
+          <option value="2024">2024</option>
+        </select>
+      </div>
+    </div>
+    <!-- Card Verification Field -->
+    <div class="card-verification">
+      <div class="cvv-input">
+        <input type="text" placeholder="CVV">
+      </div>
+    </div>
+
+	<input type="button" name="previous" class="previous action-button" value="Previous" />
+	<input type="button" name="next" class="next action-button" value="Next" />
+
+  </fieldset>
+  <fieldset>
+    <h2 class="fs-title">Round Up Details</h2>
+    <h3 class="fs-subtitle">Enter the details</h3>
+
+    <div class="radio-lable" style="
+    float: left;
+">
+      <p>I am a:</p>
+    </div>
+    <div class="radio-lable">
+		<input class = "test" type="radio" name="type" value="Donor" checked> Donor
+		<input class = "test" type="radio" name="type" value="Charity"> Charity
+	   </div>
+    <input type="button" name="previous" class="previous action-button" value="Previous" />
+    <input type="submit" name="submit" class="submit action-button" value="Submit" />
+  </fieldset>
+
+</form>
+	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
+
+    <script src="index.js"></script>
+
+</body>
+
+</html>
