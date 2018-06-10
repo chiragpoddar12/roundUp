@@ -33,3 +33,15 @@ function nextTab(elem) {
 function prevTab(elem) {
     $(elem).prev().find('a[data-toggle="tab"]').click();
 }
+
+function onCauseSelect(){
+    var cause = document.getElementById("select-cause").value;
+    var charityNames = document.getElementById("select-charityName").children;
+    for(var i=1; i<charityNames.length; i++){
+        if (charityNames[i].value.startsWith(cause) || cause.startsWith("dummy")){
+            $("#select-charityName option[value=" + charityNames[i].value+ "]").show();
+        }else{
+            $("#select-charityName option[value=" + charityNames[i].value + "]").hide();
+        }
+    }
+}

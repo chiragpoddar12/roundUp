@@ -1,11 +1,4 @@
-body {
-    height: 100%;
-    /*Image only BG fallback*/
 
-    /*background = gradient + image pattern combo*/
-    background:
-        linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));
-}
 
 .wizard {
     margin: 20px auto;
@@ -61,11 +54,11 @@ span.round-tab i{
 }
 .wizard li.active span.round-tab {
     background: #fff;
-    border: 2px solid #5bc0de;
+    border: 2px solid #46b56f;
 
 }
 .wizard li.active span.round-tab i{
-    color: #5bc0de;
+    color: #46b56f;
 }
 
 span.round-tab:hover {
@@ -85,7 +78,7 @@ span.round-tab:hover {
     margin: 0 auto;
     bottom: 0px;
     border: 5px solid transparent;
-    border-bottom-color: #5bc0de;
+    border-bottom-color: #46b56f;
     transition: 0.1s ease-in-out;
 }
 
@@ -97,7 +90,7 @@ span.round-tab:hover {
     margin: 0 auto;
     bottom: 0px;
     border: 10px solid transparent;
-    border-bottom-color: #5bc0de;
+    border-bottom-color: #46b56f;
 }
 
 .wizard .nav-tabs > li a {
